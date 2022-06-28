@@ -18,6 +18,7 @@ TutorModelSchema.Create = async function (req, res) {
   console.log("Function Create called");
 
   const myObj = new TutorModelSchema({
+    name: req.body.name,
     mon_status: req.body.monday_status,
     tues_status: req.body.tuesday_status,
     weds_status: req.body.wedenesday_status,
@@ -30,6 +31,7 @@ TutorModelSchema.Create = async function (req, res) {
     evening_status: req.body.evening_status,
     subj_status: req.body.subject_status,
     virt_status: req.body.virtual_status,
+    description: req.body.description
   });
 
   try {
@@ -52,6 +54,7 @@ TutorModelSchema.Update = function (req, res) {
     { _id: req.params.id },
     {
       $set: {
+        name: req.body.name,
         mon_status: req.body.monday_status,
         tues_status: req.body.tuesday_status,
         weds_status: req.body.wedenesday_status,
@@ -64,6 +67,7 @@ TutorModelSchema.Update = function (req, res) {
         evening_status: req.body.evening_status,
         subj_status: req.body.subject_status,
         virt_status: req.body.virtual_status,
+        description: req.body.description
       },
     }
   )

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 mongoose.Promise = require("bluebird");
 
 const TutorSchema = new Schema({
+  name: String,
   mon_status: Boolean,
   tues_status: Boolean,
   weds_status: Boolean,
@@ -14,7 +15,8 @@ const TutorSchema = new Schema({
   noon_status: Boolean,
   evening_status: Boolean,
   subj_status: String,
-  virt_status: Boolean
+  virt_status: Boolean,
+  description: String
 });
 
 const TutorModelSchema = mongoose.model("Tutor", TutorSchema);
