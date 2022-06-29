@@ -16,7 +16,8 @@ const TutorSchema = new Schema({
   evening_status: Boolean,
   subj_status: String,
   virt_status: Boolean,
-  description: String
+  description: String,
+  rate: String
 });
 
 const TutorModelSchema = mongoose.model("Tutor", TutorSchema);
