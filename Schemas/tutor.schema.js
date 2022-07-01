@@ -17,7 +17,8 @@ const TutorSchema = new Schema({
   subj_status: String,
   virt_status: Boolean,
   description: String,
-  rate: String
+  rate: String,
+  zip:String
 });
 
 const TutorModelSchema = mongoose.model("Tutor", TutorSchema);
