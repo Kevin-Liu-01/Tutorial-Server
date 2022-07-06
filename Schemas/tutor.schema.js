@@ -18,6 +18,7 @@ const TutorSchema = new Schema({
   virt_status: Boolean,
   description: String,
   rate: String,
+  email:String,
   zip:String
 });
 

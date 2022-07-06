@@ -33,6 +33,7 @@ TutorModelSchema.Create = async function (req, res) {
     virt_status: req.body.virtual_status,
     description: req.body.description,
     rate: req.body.rate,
+    email:req.body.email,
     zip: req.body.zip
   });
 
@@ -71,6 +72,7 @@ TutorModelSchema.Update = function (req, res) {
         virt_status: req.body.virtual_status,
         description: req.body.description,
         rate: req.body.rate,
+        email:req.body.email,
         zip: req.body.zip
       },
     }
