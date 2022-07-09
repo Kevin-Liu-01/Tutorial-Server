@@ -16,17 +16,19 @@ clientRoutes.route("/client").get(ClientModelMethods.Displayall);
 clientRoutes.route("/client/add").post(ClientModelMethods.Create);
 
 // This section will help you update a record by id.
-clientRoutes.route("/update/:id").post(ClientModelMethods.Update);
+clientRoutes.route("/client/update/:id").post(ClientModelMethods.Update);
 
 // This section will make a request
-clientRoutes.route("/tutor/:id").get(ClientModelMethods.DisplayOne);
+clientRoutes.route("/client/:id").get(ClientModelMethods.DisplayOne);
 
 // This section will make a request
-clientRoutes.route("/:id").get(ClientModelMethods.GetQuestion);
+clientRoutes.route("/client/:id").get(ClientModelMethods.GetQuestion);
 
 // This section will help you delete a record
-clientRoutes.route("/:id").delete(ClientModelMethods.DeleteQuestion);
+clientRoutes.route("/client/:id").delete(ClientModelMethods.DeleteQuestion);
 
-clientRoutes.route("/delete/:id").post(ClientModelMethods.DeleteQuestion);
+clientRoutes
+  .route("/client/delete/:id")
+  .post(ClientModelMethods.DeleteQuestion);
 
 module.exports = clientRoutes;
