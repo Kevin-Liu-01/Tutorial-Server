@@ -1,10 +1,10 @@
-const ClientModelSchema = require("../Schemas/client.schema");
+const TutorModelSchema = require("../schemas/tutor-schema.js");
 
 /* Create */
-ClientModelSchema.Displayall = function (req, res) {
+TutorModelSchema.Displayall = function (req, res) {
   console.log("Function Displayall called");
 
-  ClientModelSchema.find({})
+  TutorModelSchema.find({})
     .exec()
     .then((result) => {
       return res.json(result);
@@ -14,10 +14,10 @@ ClientModelSchema.Displayall = function (req, res) {
     });
 };
 /* Retrieve */
-ClientModelSchema.Create = async function (req, res) {
+TutorModelSchema.Create = async function (req, res) {
   console.log("Function Create called");
 
-  const myObj = new ClientModelSchema({
+  const myObj = new TutorModelSchema({
     name: req.body.name,
     mon_status: req.body.mon_status,
     tues_status: req.body.tues_status,
@@ -50,10 +50,10 @@ ClientModelSchema.Create = async function (req, res) {
   }
 };
 
-ClientModelSchema.Update = function (req, res) {
+TutorModelSchema.Update = function (req, res) {
   console.log("Function Update called");
 
-  return ClientModelSchema.findOneAndUpdate(
+  return TutorModelSchema.findOneAndUpdate(
     { _id: req.params.id },
     {
       $set: {
@@ -86,9 +86,9 @@ ClientModelSchema.Update = function (req, res) {
     });
 };
 
-ClientModelSchema.DisplayOne = (req, res) => {
+TutorModelSchema.DisplayOne = (req, res) => {
   console.log("returning");
-  return ClientModelSchema.findById(req.params.id)
+  return TutorModelSchema.findById(req.params.id)
     .then((result) => {
       return console.log(res.json(result));
     })
@@ -97,7 +97,7 @@ ClientModelSchema.DisplayOne = (req, res) => {
     });
 };
 
-ClientModelSchema.GetQuestion = (req, res) => {
+TutorModelSchema.GetQuestion = (req, res) => {
   // const id = req.params.id;
   // console.log("/:id is called with id=" + id)
   // let db_connect = dbo.getDb("employees");
@@ -114,9 +114,9 @@ ClientModelSchema.GetQuestion = (req, res) => {
   // });
 };
 
-ClientModelSchema.DeleteQuestion = (req, res) => {
+TutorModelSchema.DeleteQuestion = (req, res) => {
   console.log("Document deleting: " + req.params.id);
-  return ClientModelSchema.findByIdAndRemove(req.params.id)
+  return TutorModelSchema.findByIdAndRemove(req.params.id)
     .exec()
     .then((result) => {
       return res.json(result);
@@ -126,4 +126,4 @@ ClientModelSchema.DeleteQuestion = (req, res) => {
     });
 };
 
-module.exports = ClientModelSchema;
+module.exports = TutorModelSchema;

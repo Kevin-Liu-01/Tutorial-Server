@@ -1,6 +1,6 @@
 const express = require("express");
 
-var TutorModelMethods = require("../Models/tutor.model");
+var TutorModelMethods = require("../models/tutor-model.js");
 
 // questionRoutes is an instance of the express router.
 // We use it to define our routes.

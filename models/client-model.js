@@ -1,10 +1,10 @@
-const TutorModelSchema = require("../Schemas/tutor.schema");
+const ClientModelSchema = require("../schemas/client-schema.js");
 
 /* Create */
-TutorModelSchema.Displayall = function (req, res) {
+ClientModelSchema.Displayall = function (req, res) {
   console.log("Function Displayall called");
 
-  TutorModelSchema.find({})
+  ClientModelSchema.find({})
     .exec()
     .then((result) => {
       return res.json(result);
@@ -14,10 +14,10 @@ TutorModelSchema.Displayall = function (req, res) {
     });
 };
 /* Retrieve */
-TutorModelSchema.Create = async function (req, res) {
+ClientModelSchema.Create = async function (req, res) {
   console.log("Function Create called");
 
-  const myObj = new TutorModelSchema({
+  const myObj = new ClientModelSchema({
     name: req.body.name,
     mon_status: req.body.mon_status,
     tues_status: req.body.tues_status,
@@ -33,8 +33,8 @@ TutorModelSchema.Create = async function (req, res) {
     virt_status: req.body.virt_status,
     description: req.body.desc,
     rate: req.body.rate,
-    email:req.body.email,
-    zip: req.body.zip
+    email: req.body.email,
+    zip: req.body.zip,
   });
 
   try {
@@ -50,10 +50,10 @@ TutorModelSchema.Create = async function (req, res) {
   }
 };
 
-TutorModelSchema.Update = function (req, res) {
+ClientModelSchema.Update = function (req, res) {
   console.log("Function Update called");
 
-  return TutorModelSchema.findOneAndUpdate(
+  return ClientModelSchema.findOneAndUpdate(
     { _id: req.params.id },
     {
       $set: {
@@ -72,8 +72,8 @@ TutorModelSchema.Update = function (req, res) {
         virt_status: req.body.virtual_status,
         description: req.body.description,
         rate: req.body.rate,
-        email:req.body.email,
-        zip: req.body.zip
+        email: req.body.email,
+        zip: req.body.zip,
       },
     }
   )
@@ -86,9 +86,9 @@ TutorModelSchema.Update = function (req, res) {
     });
 };
 
-TutorModelSchema.DisplayOne = (req, res) => {
+ClientModelSchema.DisplayOne = (req, res) => {
   console.log("returning");
-  return TutorModelSchema.findById(req.params.id)
+  return ClientModelSchema.findById(req.params.id)
     .then((result) => {
       return console.log(res.json(result));
     })
@@ -97,7 +97,7 @@ TutorModelSchema.DisplayOne = (req, res) => {
     });
 };
 
-TutorModelSchema.GetQuestion = (req, res) => {
+ClientModelSchema.GetQuestion = (req, res) => {
   // const id = req.params.id;
   // console.log("/:id is called with id=" + id)
   // let db_connect = dbo.getDb("employees");
@@ -114,9 +114,9 @@ TutorModelSchema.GetQuestion = (req, res) => {
   // });
 };
 
-TutorModelSchema.DeleteQuestion = (req, res) => {
+ClientModelSchema.DeleteQuestion = (req, res) => {
   console.log("Document deleting: " + req.params.id);
-  return TutorModelSchema.findByIdAndRemove(req.params.id)
+  return ClientModelSchema.findByIdAndRemove(req.params.id)
     .exec()
     .then((result) => {
       return res.json(result);
@@ -126,4 +126,4 @@ TutorModelSchema.DeleteQuestion = (req, res) => {
     });
 };
 
-module.exports = TutorModelSchema;
+module.exports = ClientModelSchema;
